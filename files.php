@@ -11,12 +11,18 @@ ini_set('display_errors', 1);
 </head>
 <body>
 <?php
-// $filename = "texttttt.txt";
-// $content = "spongebob square pants";
-// file_put_contents($filename,$content);
-// echo "file created";
+//open file and read content:
+$myfile = fopen("taskfile", "r") or die("Unable to open file!");
+echo fread($myfile,filesize("taskfile"));
 
+//to create file and save custom content
+$myfile = fopen("/var/www/html/kartik/phpformvalidation/taskfile", "w") or die("Unable to open file!");
+$content = "spongebob square pants";
+fwrite($myfile,$content);
+fclose($myfile);
+echo "file created";
 ?>
+
 <?php
 // $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
 // $txt = "John Doe\n";
@@ -25,6 +31,5 @@ ini_set('display_errors', 1);
 // fwrite($myfile, $txt);
 // fclose($myfile);
 ?>
-<?php echo phpinfo();?>
 </body>
 </html>
